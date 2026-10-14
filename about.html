@@ -84,6 +84,33 @@ a:focus-visible { outline:2px solid #b3e6cd; outline-offset:6px; }
 @media(max-width:900px) { .home-back { left:24px; top:24px; } }
 @media(max-width:700px) { .home-back { top:22px; font-size:20px; } }
 @media(max-width:430px) { .home-back { font-size:18px; } }
+
+/* Navigation hover matched to Je'm home; no active-page underline. */
+.site-header .site-nav a,
+.site-header .home-back {
+  display:inline-block;
+  transform:translateY(0);
+  transform-origin:left center;
+  transition:transform .28s ease;
+  text-decoration:none;
+  opacity:1;
+}
+.site-header .site-nav a[aria-current="page"] { text-decoration:none; }
+.site-header .site-nav a:hover,
+.site-header .site-nav a:focus-visible,
+.site-header .home-back:hover,
+.site-header .home-back:focus-visible {
+  transform:translateY(3px);
+  text-decoration:none;
+  opacity:1;
+}
+@media (prefers-reduced-motion:reduce) {
+  .site-header .site-nav a, .site-header .home-back { transition:none; }
+  .site-header .site-nav a:hover,
+  .site-header .site-nav a:focus-visible,
+  .site-header .home-back:hover,
+  .site-header .home-back:focus-visible { transform:none; }
+}
 </style>
 </head>
 <body>
