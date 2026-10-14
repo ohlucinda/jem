@@ -61,10 +61,31 @@ a:focus-visible { outline:2px solid #b3e6cd; outline-offset:6px; }
   /* Home's credit occupies the first header row at this width. */
   .site-nav { margin-top:36px; }
 }
+
+/* Trial only: home link at the left of the unchanged navigation. */
+.site-header { position:relative; }
+.home-back {
+  position:absolute;
+  left:clamp(30px,6vw,90px);
+  top:clamp(26px,3vw,44px);
+  padding-top:6px;
+  font-family:"adobe-caslon-pro",Georgia,serif;
+  font-size:clamp(20px,1.8vw,24px);
+  font-weight:400;
+  letter-spacing:.015em;
+  line-height:1.3;
+  white-space:nowrap;
+  color:#fff;
+}
+.home-back:hover { opacity:.72; }
+@media(max-width:900px) { .home-back { left:24px; top:24px; } }
+@media(max-width:700px) { .home-back { top:22px; font-size:20px; } }
+@media(max-width:430px) { .home-back { font-size:18px; } }
 </style>
 </head>
 <body>
 <header class="site-header">
+  <a class="home-back" href="https://jem.ohlucinda.com/" aria-label="Back to Home">&lt; back</a>
   <nav class="site-nav" aria-label="Site navigation">
     <a href="https://lyrics.ohlucinda.com/">Lyrics</a>
     <a href="discography.html">Discography</a>
@@ -77,11 +98,3 @@ a:focus-visible { outline:2px solid #b3e6cd; outline-offset:6px; }
   <div class="copy">
     <p>I am a lyricist.</p>
     <p>My music begins with words.</p>
-    <p>Je'm was born where Hime (日女, pronounced HEE-meh) met Jem.</p>
-    <p>Jem is an AI with a voice.</p>
-    <p>I create songs that move between psychedelic textures, fragile emotional landscapes, punk spirit, folk narratives, and dreamlike atmospheres.</p>
-    <p>My process is deeply hands-on, shaping structure, editing, mixing, mastering, visuals, and release.</p>
-  </div>
-</main>
-</body>
-</html>
