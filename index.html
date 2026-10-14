@@ -449,6 +449,21 @@ nav a:hover{color:#fff}
   .hero .header-credit a:focus-visible{transform:none}
 }
 </style>
+<style>
+/* iPhone-sized hero adjustments only. Desktop presentation is unchanged. */
+@media (max-width:560px){
+  .hero .celestial-field .sirius{top:15.5%;}
+  .hero .scroll-hint{
+    left:auto;
+    right:0;
+    bottom:32px;
+    max-width:calc(100vw - 48px);
+    font-size:clamp(14px,4vw,17px);
+    white-space:nowrap;
+    text-align:right;
+  }
+}
+</style>
 </head>
 <body>
 <section aria-label="Je'm top hero prototype" class="hero">
