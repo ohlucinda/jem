@@ -1,11 +1,25 @@
 # Je'm website
 
-This repository stores work-in-progress copies of the Je'm website.
+Je'm ウェブサイトのリポジトリです。
 
-- `drafts/top-first-draft/index.html`: approved first-draft top-page HTML, saved 2026-10-14.
-- `drafts/about-in-progress/about.html`: unfinished About reconstruction, not approved. The original colorful logo is not yet reliably embedded/displayed.
-- `drafts/site-in-progress/outtakes.html`: in-progress Outtakes page.
-- `drafts/site-in-progress/discography.html`: incomplete placeholder, not a usable backup. Discography images/assets still need archiving.
-- `DESIGN_RULES.md`: agreed typography guidelines.
+## 作業の基本ルール
 
-These are **development backups**, not the published site. Some images/assets and final page integration are not yet in this repository. Do not deploy them as a finished website.
+**GitHub の現在の公開ブランチ（`main`）にあるファイルを、修正作業の基準とする。**
+
+1. 修正を始める前に、対象ファイルの **GitHub 上の最新版**を取得して確認する。過去の会話の添付ファイル、ローカルの古いコピー、`drafts/` 内のファイルを最新版だと推測して使用しない。
+2. 依頼された部分だけを修正する。ナビゲーションの変更なら、それ以外の本文、画像、リンク、デザイン、レイアウト、動作を維持する。
+3. 修正前と修正後を比較し、意図しない差分がないか確認する。特に画像の参照先、ファイルサイズ、リンク、ナビゲーション、既存の機能を確認する。
+4. `discography.html` は、ジャケット画像を HTML 内に Base64 形式で埋め込まない軽量版を維持する。既存の外部画像ファイルへの参照を保ち、過去の約15MBの巨大な HTML に戻さない。
+5. ユーザーが GitHub 上で直接変更した内容（ジャケットの差し替え等）も最新版の一部として扱う。作業開始時に必ず取得し直し、古い内容で上書きしない。
+6. 最新版を取得できない場合、どの版が正しいか確認できない場合、または想定外の大きな差分が生じた場合は、**推測で上書きしない**。問題を明示して変更を止める。
+7. 修正後は、変更箇所と確認結果を明確に伝える。GitHub への反映は依頼された範囲のみで行う。
+
+## 旧ファイルと履歴
+
+- `drafts/` などの古い作業コピーは、現在のページを修正する際の土台として使わない。
+- Git のコミット履歴は復旧に役立つため、履歴そのものを消さない。
+- 古いファイルを再利用する必要がある場合は、最新版との差分と目的を先に確認する。
+
+## 既存のデザイン
+
+デザインやタイポグラフィに関する既存の取り決めは `DESIGN_RULES.md` も参照する。ただし、古い記述よりも現在公開されているページの実装とユーザーの最新の指示を優先する。
