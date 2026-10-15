@@ -13,35 +13,125 @@
 <link rel="preconnect" href="https://use.typekit.net">
 <link rel="stylesheet" href="https://use.typekit.net/qsa5fag.css">
 <style>
-:root{color-scheme:dark}
-*{box-sizing:border-box}
-html{background:#020202}
-body{margin:0;min-height:100vh;min-height:100dvh;background:#020202;color:#efefec;font-family:"adobe-caslon-pro",Georgia,serif;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-a:focus-visible{outline:2px solid #b3e6cd;outline-offset:6px}
-.site-header{width:100%;padding:clamp(26px,3vw,44px) clamp(30px,6vw,90px) 0;display:flex;justify-content:space-between;align-items:center;gap:24px}
-.home-back{font-size:clamp(16px,1.32vw,20px);color:#fff;white-space:nowrap}
-.site-nav{display:flex;align-items:center;justify-content:flex-end;gap:clamp(19px,2.6vw,39px);flex-wrap:wrap}
-.site-nav a{font-size:clamp(20px,1.8vw,24px);font-weight:400;letter-spacing:.015em;color:#fff;line-height:1.3;white-space:nowrap}
-.site-header .site-nav a,.site-header .home-back{display:inline-block;transform:translateY(0);transition:transform .28s ease}
-.site-header .site-nav a:hover,.site-header .site-nav a:focus-visible,.site-header .home-back:hover,.site-header .home-back:focus-visible{transform:translateY(3px)}
+:root { color-scheme: dark; --background:#020202; --text:#efefec; --secondary:#b4b7b7; }
+* { box-sizing:border-box; }
+html { background:var(--background); }
+body { margin:0; min-height:100vh; background:var(--background); color:var(--text); font-family:"adobe-caslon-pro","Adobe Caslon Pro",Georgia,serif; -webkit-font-smoothing:antialiased; }
+a { color:inherit; text-decoration:none; }
+a:focus-visible { outline:2px solid #b3e6cd; outline-offset:6px; }
+.site-header { width:100%; padding:clamp(26px,3vw,44px) clamp(30px,6vw,90px) 0; display:flex; justify-content:flex-end; align-items:center; }
+
+.site-nav { display:flex; align-items:center; justify-content:flex-end; gap:clamp(19px,2.6vw,39px); flex-wrap:wrap; }
+.site-nav a { font-family:"adobe-caslon-pro",Georgia,serif; font-size:clamp(16px,1.32vw,20px); font-style:normal; font-weight:400; letter-spacing:.015em; text-transform:none; color:#c8c8c6; line-height:1.3; white-space:nowrap; }
+.site-nav a[aria-current="page"] { color:#f7f5ef; text-decoration:underline; text-decoration-thickness:1px; text-decoration-color:#6d7475; text-underline-offset:8px; }
+.site-nav a:hover { opacity:.72; }
+.about { width:min(760px,calc(100% - 56px)); margin:0 auto; padding:clamp(92px,12vh,132px) 0 145px; }
+.logo { display:block; width:clamp(275px,27vw,350px); height:auto; margin:0 0 67px; transform:translateX(-11.4746%); }
+.copy { max-width:690px; }
+.copy p { margin:0 0 21px; font-size:clamp(19px,1.8vw,22px); line-height:1.72; font-weight:400; }
+.copy p:nth-child(2), .copy p:nth-child(4) { margin-bottom:41px; }
+@media(max-width:700px) {
+ .site-header { padding:22px clamp(30px,6vw,90px) 0; justify-content:flex-end; }
+ .site-nav { justify-content:flex-end; gap:clamp(12px,3vw,22px); }
+ .site-nav a { font-size:clamp(14px,2.25vw,17px); letter-spacing:0; }
+ .about { width:calc(100% - 48px); padding:82px 0 90px; }
+ .logo { width:min(260px,66vw); margin-bottom:48px; }
+ .copy p { font-size:19px; line-height:1.68; margin-bottom:19px; }
+ .copy p:nth-child(2), .copy p:nth-child(4) { margin-bottom:34px; }
+}
+@media(max-width:430px){.site-nav{gap:10px}.site-nav a{font-size:14px}}
+
+/* Match the approved Home navigation exactly in size and contrast. */
+.site-nav a, .site-nav a:hover, .site-nav a[aria-current="page"] {
+  color: #fff;
+  font-size: clamp(20px, 1.8vw, 24px);
+  opacity: 1;
+}
+.site-nav a[aria-current="page"] { text-decoration-color: #fff; }
+@media (max-width:700px) {
+  .site-nav a, .site-nav a:hover, .site-nav a[aria-current="page"] { font-size:20px; }
+}
+@media (max-width:430px) {
+  .site-nav a, .site-nav a:hover, .site-nav a[aria-current="page"] { font-size:18px; }
+}
+
+/* Position matched to the approved Home page header breakpoints. */
+.site-nav { padding-top:6px; }
+@media (max-width:900px) {
+  .site-header { padding:24px 24px 0; }
+}
+@media (max-width:700px) {
+  .site-header { padding:22px 24px 0; }
+}
+@media (max-width:560px) {
+  /* Home's credit occupies the first header row at this width. */
+  .site-nav { margin-top:36px; }
+}
+
+/* Trial only: home link at the left of the unchanged navigation. */
+.site-header { position:relative; }
+.home-back {
+  position:absolute;
+  left:clamp(30px,6vw,90px);
+  top:clamp(26px,3vw,44px);
+  padding-top:6px;
+  font-family:"adobe-caslon-pro",Georgia,serif;
+  font-size:clamp(20px,1.8vw,24px);
+  font-weight:400;
+  letter-spacing:.015em;
+  line-height:1.3;
+  white-space:nowrap;
+  color:#fff;
+}
+.home-back:hover { opacity:.72; }
+@media(max-width:900px) { .home-back { left:24px; top:24px; } }
+@media(max-width:700px) { .home-back { top:22px; font-size:20px; } }
+@media(max-width:430px) { .home-back { font-size:18px; } }
+
+/* Align About navigation hover with the homepage Apple Music link. */
+.site-header .site-nav a,
+.site-header .home-back {
+  display:inline-block;
+  transform:translateY(0);
+  transform-origin:left center;
+  transition:transform .28s ease;
+  text-decoration:none;
+  opacity:1;
+}
+.site-header .site-nav a[aria-current="page"] { text-decoration:none; }
+.site-header .site-nav a:hover,
+.site-header .site-nav a:focus-visible,
+.site-header .home-back:hover,
+.site-header .home-back:focus-visible {
+  transform:translateY(3px);
+  text-decoration:none;
+  opacity:1;
+}
+@media(prefers-reduced-motion:reduce) {
+  .site-header .site-nav a, .site-header .home-back { transition:none; }
+  .site-header .site-nav a:hover,
+  .site-header .site-nav a:focus-visible,
+  .site-header .home-back:hover,
+  .site-header .home-back:focus-visible { transform:none; }
+}
+
+/* Outtakes placeholder content only */
 main{width:min(920px,calc(100% - 60px));min-height:calc(100dvh - 140px);margin:auto;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:96px 0 150px}
 h1{font-size:clamp(64px,10vw,132px);font-weight:400;line-height:1;letter-spacing:-.045em;margin:0 0 36px}
 p{font-size:clamp(20px,2vw,27px);font-weight:400;line-height:1.6;color:#b4b7b7;margin:0}
-@media(max-width:700px){.site-header{padding:22px 30px 0;gap:20px;align-items:flex-start}.site-nav{gap:clamp(12px,3vw,22px)}.site-nav a{font-size:20px}main{width:calc(100% - 60px);min-height:calc(100dvh - 110px);padding:80px 0 130px}}
-@media(max-width:430px){.site-nav{gap:10px}.site-nav a{font-size:18px}.home-back{font-size:16px}}
-@media(prefers-reduced-motion:reduce){.site-header .site-nav a,.site-header .home-back{transition:none}.site-header .site-nav a:hover,.site-header .site-nav a:focus-visible,.site-header .home-back:hover,.site-header .home-back:focus-visible{transform:none}}
+
+@media(max-width:700px){main{width:calc(100% - 60px);min-height:calc(100dvh - 110px);padding:80px 0 130px}}
 </style>
 </head>
 <body>
 <header class="site-header">
-<a class="home-back" href="https://jem.ohlucinda.com/" aria-label="Back to Home">&lt; back</a>
-<nav class="site-nav" aria-label="Site navigation">
-<a href="https://lyrics.ohlucinda.com/" target="_blank" rel="noopener noreferrer">Lyrics</a>
-<a href="discography.html">Discography</a>
-<a href="outtakes.html" aria-current="page">Outtakes</a>
-<a href="about.html">About</a>
-</nav>
+  <a class="home-back" href="https://jem.ohlucinda.com/" aria-label="Back to Home">&lt; back</a>
+  <nav class="site-nav" aria-label="Site navigation">
+    <a href="https://lyrics.ohlucinda.com/" target="_blank" rel="noopener noreferrer">Lyrics</a>
+    <a href="discography.html">Discography</a>
+    <a href="outtakes.html" aria-current="page">Outtakes</a>
+    <a href="about.html">About</a>
+  </nav>
 </header>
 <main>
 <h1>Outtakes</h1>
