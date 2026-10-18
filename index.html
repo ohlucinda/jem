@@ -260,8 +260,9 @@ nav a:hover{color:#fff}
 .archive-eyebrow{font:normal 11px Arial,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#566c71}
 .archive-heading{font-weight:400;font-size:clamp(52px,8vw,118px);letter-spacing:-.055em;margin:12px 0 18px;line-height:1}
 .archive-intro p{font-size:clamp(18px,1.8vw,27px);line-height:1.5;max-width:560px;margin:0 0 22px}
-.archive-intro a{display:inline-block;border-bottom:1px solid #647b7e;padding-bottom:6px;font-size:clamp(16px,1.3vw,21px)}
-.archive-intro a:hover{border-color:#26363c}
+.archive-intro a{display:inline-block;border-bottom:1px solid #647b7e;padding-bottom:6px;font-size:clamp(16px,1.3vw,21px);transform:translateY(0);transition:transform .28s ease}
+.archive-intro a:hover,.archive-intro a:focus-visible{transform:translateY(3px);border-color:#26363c}
+@media(prefers-reduced-motion:reduce){.archive-intro a{transition:none}.archive-intro a:hover,.archive-intro a:focus-visible{transform:none}}
 @media(max-width:680px){.crescent{left:58%;top:26%}.jupiter{left:20%;top:65%}.journey-chapter{padding:13vh 8vw}.journey-chapter:nth-child(1){padding-top:26vh}.chapter-title{font-size:clamp(46px,12vw,73px)}.chapter-inner{max-width:90vw}.journey-chapter:nth-child(3){align-items:center}}
 @media(prefers-reduced-motion:reduce){.sky-layer,.crescent,.jupiter,.sun-halo,.daylight{transition:none}}
 </style>
